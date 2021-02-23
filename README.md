@@ -13,25 +13,23 @@ The directory must contain the following file structure:
 
 ```shell script
 secrets/
-  decrypted/
-  encrypted/
-    some-secret.json
+  [environment]/
+    secrets.yaml
 ```
 
 ## Example Usage
 
 ```yaml
-uses: rmb938/sops-decrypt-action@master
+uses: milehimikey/sops-decrypt-action@master
 with:
-  secrets-directory: secrets
+  secrets-directory: dev
 ```
 
 After decryption the secrets directory will look like the following:
 
 ```shell script
 secrets/
-  decrypted/
-    some-secret.json
-  encrypted/
-    some-secret.json
+  dev/
+    secrets.yaml
+    secrets.yaml.dec
 ```
