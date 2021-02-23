@@ -18,4 +18,4 @@ fi
 cd ${full_path}
 
 echo "Decrypting ${full_path}/secrets.yaml"
-sops -d "${full_path}/secrets.yaml" > $(basename "${encrypted_secret_file}.dec")
+sops -d "${full_path}/secrets.yaml" > $(basename "${full_path}/secrets.yaml.dec")
