@@ -8,7 +8,7 @@ if [ -z "${secrets_directory}" ]; then
     exit 1
 fi
 
-full_path=${GITHUB_WORKSPACE}/${secrets_directory}
+full_path=${GITHUB_WORKSPACE}/helm/environments/${secrets_directory}
 
 if [ ! -d "${full_path}" ]; then
     echo "Directory ${secrets_directory} does not exist in ${GITHUB_WORKSPACE}"
