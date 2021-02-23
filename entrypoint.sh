@@ -18,4 +18,4 @@ fi
 cd ${full_path}
 
 echo "Decrypting ${full_path}/secrets.yaml"
-sops -d "${full_path}/secrets.yaml" > $(basename "${full_path}/secrets.yaml.dec")
+AWS_PROFILE=${secrets_directory} sops -d "${full_path}/secrets.yaml" > $(basename "${full_path}/secrets.yaml.dec")
