@@ -18,4 +18,4 @@ fi
 cd ${full_path}
 
 echo "Decrypting ${full_path}/secrets.yaml"
-sops --aws-profile ${secrets_directory} -d "${full_path}/secrets.yaml" > $(basename "${full_path}/secrets.yaml.dec")
+AWS_SDK_LOAD_CONFIG=1 sops --aws-profile ${secrets_directory} -d "${full_path}/secrets.yaml" > $(basename "${full_path}/secrets.yaml.dec")
