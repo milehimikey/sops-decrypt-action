@@ -18,9 +18,9 @@ fi
 cd ${full_path}
 
 echo "Decrypting ${full_path}/secrets.yaml"
-echo "[${deployment_environment}]" >> ~/.aws/credentials
-echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >> ~/.aws/credentials
-echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >> ~/.aws/credentials
-echo "region = ${AWS_DEFAULT_REGION}" >> ~/.aws/credentials
-echo "role_arn = ${AWS_ROLE_NAME}" >> ~/.aws/credentials
+echo "[${deployment_environment}]" >> ${HOME}/.aws/credentials
+echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >> ${HOME}/.aws/credentials
+echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >> ${HOME}/.aws/credentials
+echo "region = ${AWS_DEFAULT_REGION}" >> ${HOME}/.aws/credentials
+echo "role_arn = ${AWS_ROLE_NAME}" >> ${HOME}/.aws/credentials
 sops --aws-profile ${deployment_environment} -d "${full_path}/secrets.yaml" > $(basename "${full_path}/secrets.yaml.dec")
