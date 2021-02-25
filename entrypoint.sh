@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-secrets_directory=${1}
+deployment_environment=${1}
 
 if [ -z "${deployment_environment}" ]; then
     echo "Directory is not set or is empty"
@@ -18,6 +18,7 @@ fi
 cd ${full_path}
 
 echo "Decrypting ${full_path}/secrets.yaml"
+echo "[${deployment_environment}]" >> ~/.aws/credentials
 echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >> ~/.aws/credentials
 echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >> ~/.aws/credentials
 echo "region = ${AWS_DEFAULT_REGION}" >> ~/.aws/credentials

@@ -22,7 +22,7 @@ secrets/
 ```yaml
 uses: milehimikey/sops-decrypt-action@master
 with:
-  secrets-directory: dev
+  deployment_environment: dev
 ```
 
 After decryption the secrets directory will look like the following:

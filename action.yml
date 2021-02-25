@@ -1,14 +1,14 @@
 name: 'Decrypt SOPS Secrets'
 description: 'Run sops to decrypt secrets'
 inputs:
-  secrets-directory: 
-    description: 'The directory that contains sops encrypted secrets'
+  deployment_environment:
+    description: 'The environment you want secrets decrypted for'
     required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.secrets-directory }}
+    - ${{ inputs.deployment_environment }}
 branding:
   icon: unlock
   color: red
